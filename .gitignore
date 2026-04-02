@@ -1,0 +1,35 @@
+# Build directories
+build/
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+
+# Qt Creator / Qt files
+*.pro.user*
+*.qbs.user*
+*.moc
+*.qrc
+*.ui
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# IDE files
+*.user
+*.user.*  
+*.workspace
+*.layout
+*.pro.user*
+*.DS_Store
+
+# Backup / temp files
+*.swp
+*~

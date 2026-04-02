@@ -1,0 +1,4 @@
+#ifndef REGISTER_WINDOW_H
+#define REGISTER_WINDOW_H
+
+#endif // REGISTER_WINDOW_H
