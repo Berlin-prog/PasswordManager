@@ -17,15 +17,19 @@ public:
     explicit login_window(QWidget* parent = nullptr);
 protected:
     void resizeEvent(QResizeEvent* event);
+    void switchToRegister();
 private slots:
     void onLoginClicked();
+signals:
+    void switchToRegisterRequested();
 private:
+    QLabel* _header;
     QLineEdit* _username;
     QLineEdit* _password;
     QPushButton* _loginButton;
     QLabel* _bgImg;
     QString _bgPath;
-
+    QLabel* _linkLabel;
 private:
     bool verifyUser(const QString& username, const QString& password);
 };
