@@ -3,7 +3,7 @@
 register_window::register_window(QWidget* parent) : QWidget(parent)
 {
     this->resize(1000, 700);
-    _bgPath = "/home/berlin/Desktop/Password-Manager-UI/LoginPage/login_page_background.jpg";
+    _bgPath = "/home/berlin/Desktop/PasswordManager/images/login_register_page_background.jpg";
 
     this->setStyleSheet(
         "QLineEdit {"
@@ -153,7 +153,7 @@ void register_window::onRegisterClicked()
 
 void register_window::resizeEvent(QResizeEvent* event)
 {
-    QPixmap bg("/home/berlin/Desktop/Password-Manager-UI/LoginPage/login_page_background.jpg");
+    QPixmap bg("/home/berlin/Desktop/PasswordManager/images/login_register_page_background.jpg");
     bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     _bgImg->setPixmap(bg);
     _bgImg->setGeometry(0, 0, this->width(), this->height());

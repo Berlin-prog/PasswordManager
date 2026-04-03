@@ -4,7 +4,7 @@ login_window::login_window(QWidget* parent) : QWidget(parent)
     this->resize(1000, 700);
 
     // 🔹 Background image path
-    _bgPath = "/home/berlin/Desktop/Password-Manager-UI/LoginPage/login_page_background.jpg";
+    _bgPath = "/home/berlin/Desktop/PasswordManager/images/login_register_page_background.jpg";
 
     // 🎨 Global styles
     this->setStyleSheet(
@@ -135,7 +135,7 @@ void login_window::onLoginClicked()
 
 void login_window::resizeEvent(QResizeEvent* event)
 {
-    QPixmap bg("/home/berlin/Desktop/Password-Manager-UI/LoginPage/login_page_background.jpg");
+    QPixmap bg("/home/berlin/Desktop/PasswordManager/images/login_register_page_background.jpg");
     bg = bg.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
     _bgImg->setPixmap(bg);
