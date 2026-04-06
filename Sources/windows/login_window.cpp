@@ -127,10 +127,9 @@ void login_window::onLoginClicked()
     if(!verifyUser(username, password))
     {
         qDebug() << "Invalid username or password!";
-    } else
-    {
-        qDebug() << "Login Success!";
+        return;
     }
+    emit loginSuccess(username);
 }
 
 void login_window::resizeEvent(QResizeEvent* event)

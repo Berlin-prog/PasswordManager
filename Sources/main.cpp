@@ -8,20 +8,32 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     DatabaseManager::instance().openDB("passwords.db");
     DatabaseManager::instance().createTables();
-    // register_window registerPage;
-    // login_window loginPage;
-    // registerPage.show();
+    register_window registerPage;
+    login_window loginPage;
+    main_window mainWindow;
+    registerPage.show();
 
-    // QObject::connect(&loginPage, &login_window::switchToRegisterRequested, [&](){
-    //     loginPage.hide();
-    //     registerPage.show();
-    // });
+    QObject::connect(&loginPage, &login_window::switchToRegisterRequested, [&](){
+        loginPage.hide();
+        registerPage.show();
+    });
 
-    // QObject::connect(&registerPage, &register_window::switchToLoginRequested, [&](){
-    //     registerPage.hide();
-    //     loginPage.show();
-    // });
-    main_window x;
-    x.show();
+    QObject::connect(&registerPage, &register_window::switchToLoginRequested, [&](){
+        registerPage.hide();
+        loginPage.show();
+    });
+
+    QObject::connect(&loginPage, &login_window::loginSuccess, [&](const QString& username)
+    {
+        mainWindow.setUsername(username);
+        loginPage.hide();
+        mainWindow.show();
+    });
+
+    QObject::connect(&mainWindow, &main_window::logoutRequested, [&]()
+    {
+        loginPage.show();
+        mainWindow.hide();
+    });
     return a.exec();
 }

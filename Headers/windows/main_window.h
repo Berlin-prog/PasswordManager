@@ -13,10 +13,12 @@ class main_window : public QWidget
     Q_OBJECT
 public:
     explicit main_window(QWidget* parent = nullptr);
-
+    void setUsername(const QString& username);
 private:
     void setupUI();
     void setActiveButton(QPushButton* active);
+signals:
+    void logoutRequested();
 private:
     QHBoxLayout* _mainLayout;
     QWidget* _sidebar;

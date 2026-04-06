@@ -113,4 +113,13 @@ void main_window::setupUI()
     // ADD TO MAIN
     _mainLayout->addWidget(_sidebar);
     _mainLayout->addWidget(content);
+
+    connect(_logoutBtn, &QPushButton::clicked, this, [=](){
+        emit logoutRequested();
+    });
+}
+
+void main_window::setUsername(const QString& username)
+{
+    _username->setText(username);
 }

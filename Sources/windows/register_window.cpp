@@ -134,7 +134,8 @@ void register_window::onRegisterClicked()
     }
 
     // 🔑 Insert user into database
-    QSqlQuery query;
+    auto db = DatabaseManager::instance().database();
+    QSqlQuery query(db);
     query.prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
     query.bindValue(":username", username);
     query.bindValue(":password", password); // You can hash the password later

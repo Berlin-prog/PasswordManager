@@ -22,6 +22,7 @@ private slots:
     void onLoginClicked();
 signals:
     void switchToRegisterRequested();
+    void loginSuccess(const QString& username);
 private:
     QLabel* _header;
     QLineEdit* _username;

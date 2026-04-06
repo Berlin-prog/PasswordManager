@@ -12,9 +12,7 @@ public:
     static DatabaseManager& instance();
 
     bool openDB(const QString& path);
-
     void createTables();
-
     QSqlDatabase& database();
 private:
     DatabaseManager() {};
