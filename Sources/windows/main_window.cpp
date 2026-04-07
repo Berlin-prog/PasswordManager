@@ -117,9 +117,41 @@ void main_window::setupUI()
     connect(_logoutBtn, &QPushButton::clicked, this, [=](){
         emit logoutRequested();
     });
+    connect(_dashboardBtn, &QPushButton::clicked, this, [this]() {
+        setActiveButton(_dashboardBtn);
+    });
+    connect(_passwordsBtn, &QPushButton::clicked, this, [this]() {
+        setActiveButton(_passwordsBtn);
+    });
+    connect(_notesBtn, &QPushButton::clicked, this, [this]() {
+        setActiveButton(_notesBtn);
+    });
+    connect(_generatorBtn, &QPushButton::clicked, this, [this]() {
+        setActiveButton(_generatorBtn);
+    });
+    connect(_settingsBtn, &QPushButton::clicked, this, [this]() {
+        setActiveButton(_settingsBtn);
+    });
+
 }
 
 void main_window::setUsername(const QString& username)
 {
     _username->setText(username);
+}
+
+void main_window::setActiveButton(QPushButton* active)
+{
+    QVector<QPushButton*> buttons {
+        _dashboardBtn,
+        _passwordsBtn,
+        _notesBtn,
+        _generatorBtn,
+        _settingsBtn,
+    };
+    for(const auto& button : buttons)
+    {
+        button->setStyleSheet(_btnStyle);
+    }
+    active->setStyleSheet(_activeStyle);
 }
