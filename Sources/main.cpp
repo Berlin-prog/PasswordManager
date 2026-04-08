@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(&loginPage, &login_window::loginSuccess, [&](const QString& username)
     {
+        mainWindow.setupUI();
         mainWindow.setUsername(username);
         loginPage.hide();
         mainWindow.show();
