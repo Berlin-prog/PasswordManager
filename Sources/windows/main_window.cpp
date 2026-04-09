@@ -1,6 +1,8 @@
 #include "windows/main_window.h"
 
-main_window::main_window(QWidget* parent) : abstract_window(parent) {};
+main_window::main_window(QWidget* parent) : abstract_window(parent) {
+    setupUI();
+};
 
 void main_window::setupUI()
 {
