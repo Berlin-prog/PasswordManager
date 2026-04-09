@@ -3,6 +3,7 @@
 #include "windows/login_window.h"
 #include "db/database_manager.h"
 #include "windows/register_window.h"
+#include "windows/dashboard_page.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
     QObject::connect(&loginPage, &login_window::loginSuccess, [&](const QString& username)
     {
         mainWindow.setupUI();
-        mainWindow.setUsername(username);
+        mainWindow.setUserData(username);
         loginPage.hide();
         mainWindow.show();
     });

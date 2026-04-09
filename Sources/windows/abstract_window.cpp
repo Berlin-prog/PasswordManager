@@ -105,12 +105,13 @@ void abstract_window::setupUI()
     _sidebarLayout->addSpacing(10);
     _sidebarLayout->addWidget(_logoutBtn);
 
-    QWidget* content = new QWidget();
-    content->setStyleSheet("background-color: #020617;");
+    _content = new QStackedWidget();
+    _content->setStyleSheet("background-color: #020617;");
+
 
     // ADD TO MAIN
     _mainLayout->addWidget(_sidebar);
-    _mainLayout->addWidget(content);
+    _mainLayout->addWidget(_content);
 
     connect(_logoutBtn, &QPushButton::clicked, this, [=](){
         emit logoutRequested();

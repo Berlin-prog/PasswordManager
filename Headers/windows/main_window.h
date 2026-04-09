@@ -9,12 +9,21 @@
 #include <QString>
 #include <QVector>
 #include "abstract_window.h"
+#include "windows/dashboard_page.h"
+
 class main_window : public abstract_window
 {
     Q_OBJECT
 public:
     explicit main_window(QWidget* parent = nullptr);
     void setupUI() override;
+    void setUserData(const QString& username);
+private:
+    dashboard_page* _dashboard;
+    QWidget* _passwords;   // temp (later class)
+    QWidget* _notes;
+    QWidget* _generator;
+    QWidget* _settings;
 };
 
 #endif // MAIN_WINDOW_H

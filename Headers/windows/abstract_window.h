@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QStackedWidget>
 
 class abstract_window : public QWidget
 {
@@ -34,6 +35,7 @@ protected:
     QString _btnStyle;
     QString _activeStyle;
     QLabel* _username;
+    QStackedWidget* _content;
 };
 
 #endif // ABSTRACT_WINDOW_H
