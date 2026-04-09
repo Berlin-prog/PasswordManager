@@ -9,7 +9,7 @@ void main_window::setupUI()
 
     _dashboard = new dashboard_page();
 
-    _passwords = new QWidget();
+    _passwords = new passwords_page();
     _notes = new QWidget();
     _generator = new QWidget();
     _settings = new QWidget();

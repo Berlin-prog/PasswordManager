@@ -10,7 +10,7 @@
 #include <QVector>
 #include "abstract_window.h"
 #include "windows/dashboard_page.h"
-
+#include "windows/passwords_page.h"
 class main_window : public abstract_window
 {
     Q_OBJECT
@@ -20,7 +20,7 @@ public:
     void setUserData(const QString& username);
 private:
     dashboard_page* _dashboard;
-    QWidget* _passwords;   // temp (later class)
+    passwords_page* _passwords;
     QWidget* _notes;
     QWidget* _generator;
     QWidget* _settings;

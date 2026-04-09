@@ -25,6 +25,14 @@ dashboard_page::dashboard_page(QWidget* parent) : QWidget(parent)
 
     mainLayout->addWidget(_welcomeLabel);
 
+    QGraphicsOpacityEffect* effect = new QGraphicsOpacityEffect(_welcomeLabel);
+    _welcomeLabel->setGraphicsEffect(effect);
+
+    QPropertyAnimation* fade = new QPropertyAnimation(effect, "opacity");
+    fade->setDuration(700);
+    fade->setStartValue(0);
+    fade->setEndValue(1);
+    fade->start(QAbstractAnimation::DeleteWhenStopped);
     // ===== 2. Stats =====
     QHBoxLayout* statsLayout = new QHBoxLayout();
     statsLayout->setSpacing(15);
@@ -47,28 +55,42 @@ dashboard_page::dashboard_page(QWidget* parent) : QWidget(parent)
     activityList->addItem("Deleted Twitter");
 
     activityList->setStyleSheet(R"(
+    QListWidget {
         background-color: #0F172A;
         color: white;
         border-radius: 10px;
         padding: 10px;
-    )");
+    }
+    QListWidget::item {
+        padding: 8px;
+        border-radius: 6px;
+    }
+    QListWidget::item:hover {
+        background-color: #1E293B;
+    }
+)");
 
     mainLayout->addWidget(activityList);
 
     // ===== 4. Button =====
     QPushButton* addBtn = new QPushButton("+ Add Password");
     addBtn->setStyleSheet(R"(
-        QPushButton {
-            background-color: #2563EB;
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        QPushButton:hover {
-            background-color: #1D4ED8;
-        }
-    )");
+    QPushButton {
+        background-color: #2563EB;
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    QPushButton:hover {
+        background-color: #1D4ED8;
+    }
+    QPushButton:pressed {
+        background-color: #1E40AF;
+        padding-top: 14px;
+        padding-bottom: 10px;
+    }
+)");
 
     mainLayout->addWidget(addBtn);
     mainLayout->addStretch();
@@ -90,6 +112,9 @@ QWidget* dashboard_page::createCard(const QString& title, const QString& value)
 
     layout->addWidget(t);
     layout->addWidget(v);
+
+    card->setAttribute(Qt::WA_Hover);
+    card->installEventFilter(this);
     return card;
 
 }
@@ -97,4 +122,31 @@ QWidget* dashboard_page::createCard(const QString& title, const QString& value)
 void dashboard_page::setUsername(const QString& username)
 {
     _welcomeLabel->setText("Welcome back, " + username + " 👋");
+}
+
+bool dashboard_page::eventFilter(QObject* obj, QEvent* event)
+{
+    QWidget* card = qobject_cast<QWidget*>(obj);
+
+    if (card)
+    {
+        if (event->type() == QEvent::Enter)
+        {
+            card->setStyleSheet(R"(
+                background-color: #1E293B;
+                border-radius: 15px;
+                padding: 15px;
+            )");
+        }
+        else if (event->type() == QEvent::Leave)
+        {
+            card->setStyleSheet(R"(
+                background-color: #0F172A;
+                border-radius: 15px;
+                padding: 15px;
+            )");
+        }
+    }
+
+    return QWidget::eventFilter(obj, event);
 }
