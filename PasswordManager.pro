@@ -13,7 +13,8 @@ HEADERS += \
     Headers/windows/passwords_page.h \
     Headers/windows/register_window.h \
     Headers/windows/abstract_window.h \
-    Headers/db/database_manager.h
+    Headers/db/database_manager.h \
+    Headers/windows/secure_notes_page.h
 
 
 SOURCES += \
@@ -24,4 +25,5 @@ SOURCES += \
     Sources/windows/main_window.cpp \
     Sources/windows/passwords_page.cpp \
     Sources/windows/register_window.cpp \
-    Sources/db/database_manager.cpp
+    Sources/db/database_manager.cpp \
+    Sources/windows/secure_notes_page.cpp
