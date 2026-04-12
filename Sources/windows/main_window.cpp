@@ -13,8 +13,8 @@ void main_window::setupUI()
 
     _passwords = new passwords_page();
     _notes = new secure_notes_page();
-    _generator = new QWidget();
-    _settings = new QWidget();
+    _generator = new generator_page();
+    _settings = new settings_page();
 
     _passwords->setStyleSheet("background-color: #020617;");
     _notes->setStyleSheet("background-color: #020617;");

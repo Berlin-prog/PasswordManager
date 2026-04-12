@@ -8,22 +8,26 @@ TEMPLATE = app
 HEADERS += \
     Headers/windows/dashboard_page.h \
     Headers/windows/database_manager.h \
+    Headers/windows/generator_page.h \
     Headers/windows/login_window.h \
     Headers/windows/main_window.h \
     Headers/windows/passwords_page.h \
     Headers/windows/register_window.h \
     Headers/windows/abstract_window.h \
     Headers/db/database_manager.h \
-    Headers/windows/secure_notes_page.h
+    Headers/windows/secure_notes_page.h \
+    Headers/windows/settings_page.h
 
 
 SOURCES += \
     Sources/main.cpp \
     Sources/windows/abstract_window.cpp \
     Sources/windows/dashboard_page.cpp \
+    Sources/windows/generator_page.cpp \
     Sources/windows/login_window.cpp \
     Sources/windows/main_window.cpp \
     Sources/windows/passwords_page.cpp \
     Sources/windows/register_window.cpp \
     Sources/db/database_manager.cpp \
-    Sources/windows/secure_notes_page.cpp
+    Sources/windows/secure_notes_page.cpp \
+    Sources/windows/settings_page.cpp

@@ -12,6 +12,8 @@
 #include "windows/dashboard_page.h"
 #include "windows/passwords_page.h"
 #include "windows/secure_notes_page.h"
+#include "windows/generator_page.h"
+#include "windows/settings_page.h"
 class main_window : public abstract_window
 {
     Q_OBJECT
@@ -23,8 +25,8 @@ private:
     dashboard_page* _dashboard;
     passwords_page* _passwords;
     secure_notes_page* _notes;
-    QWidget* _generator;
-    QWidget* _settings;
+    generator_page* _generator;
+    settings_page* _settings;
 };
 
 #endif // MAIN_WINDOW_H
